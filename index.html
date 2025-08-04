@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주식 투자</title>
+    <link rel="stylesheet" href="totoo.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="top-controls">
+            <h1> 투자</h1>
+            <button class="reset-button" onclick="resetData()">데이터 초기화</button>
+            
+            <div>현재 자산: <span id="current-balance">100,000</span>원</div>
+        </div>
+
+        <div class="portfolio">
+            <div>보유 주식 가치: <span id="portfolio-value">0</span>원</div>
+        </div>
+
+        <div class="time-left">
+            다음 가격 변동까지: <span id="time-to-next-fluctuation">30</span>초
+        </div>
+
+        <div class="alert" id="message-area"></div>
+
+        <div class="stock-list" id="stock-list">
+            </div>
+
+        <div class="transactions">
+            <h2>거래 내역</h2>
+            <ul id="transaction-list">
+                </ul>
+        </div>
+    </div>
+
+    <div id="stockModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-stock-name"></h2>
+            <p>현재가: <span id="modal-current-price" class="modal-price"></span>원 <span id="modal-price-change" class="modal-change"></span></p>
+            <p>보유 수량: <span id="modal-owned-quantity"></span>주</p>
+            <p>총 평가액: <span id="modal-total-value"></span>원</p>
+
+            <div class="stock-graph-container" style="width: 100%; height: 250px; margin-top: 20px;">
+                <canvas id="stockChart"></canvas>
+            </div>
+            <p style="font-size: 0.9em; color: #777;">(참고: 실제 차트 및 상세 변동 내역은 백엔드 및 데이터베이스가 필요합니다.)</p>
+        </div>
+    </div>
+
+    <script src="totoo.js"></script>
+</body>
+</html>
